@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
 
+export enum PasswordStrength {
+  Easy = 'easy',
+  Medium = 'medium',
+  Strong = 'strong',
+}
+
 @Component({
   selector: 'app-password-input',
   templateUrl: './password-input.component.html',
@@ -10,37 +16,34 @@ export class PasswordInputComponent {
   passwordStrength: string = '';
 
   checkPasswordStrength() {
-    let i = 0;
+    var passwordStrengthScore = 0;
 
     if (this.password.length === 0) {
       this.passwordStrength = '';
     } else if (this.password.length < 8) {
-      this.passwordStrength = 'easy';
+      this.passwordStrength = PasswordStrength.Easy;
     } else {
-      if (/[a-z]/.test(this.password)) {
-        i++;
-      }
-      if (/[A-Z]/.test(this.password)) {
-        i++;
+      if (/[a-z]/.test(this.password) || /[A-Z]/.test(this.password)) {
+        passwordStrengthScore++;
       }
       if (/[0-9]/.test(this.password)) {
-        i++;
+        passwordStrengthScore++;
       }
       if (/[^a-zA-Z0-9]/.test(this.password)) {
-        i++;
+        passwordStrengthScore++;
       }
     }
 
-    this.updatePasswordStrength(i);
+    this.updatePasswordStrength(passwordStrengthScore);
   }
 
-  updatePasswordStrength(i: number) {
-    if (i === 1) {
-      this.passwordStrength = 'easy';
-    } else if (i === 2) {
-      this.passwordStrength = 'medium';
-    } else if (i === 3) {
-      this.passwordStrength = 'strong';
+  updatePasswordStrength(passwordStrengthScore: number) {
+    if (passwordStrengthScore === 1) {
+      this.passwordStrength = PasswordStrength.Easy;
+    } else if (passwordStrengthScore === 2) {
+      this.passwordStrength = PasswordStrength.Medium;
+    } else if (passwordStrengthScore === 3) {
+      this.passwordStrength = PasswordStrength.Strong;
     }
   }
 }
