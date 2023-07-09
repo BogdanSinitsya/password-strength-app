@@ -14,7 +14,7 @@ Follow these steps to install the project:
 2. Navigate to the project directory: `cd password-strength-app`
 3. Start the project: `ng serve`
 
-If everything is successful, you should see "Project is running at http://localhost:3000/" in the terminal.
+If everything is successful, you should see "Project is running at http://localhost:4200/" in the terminal.
 
 ## Running unit tests
 
