@@ -1,6 +1,7 @@
 # Password Strength Test
 
 This project provides a password strength test component implemented in Angular. It allows users to check the strength of their passwords based on various criteria such as length, presence of uppercase and lowercase letters, numeric characters, and special characters.
+![password-strength-app](https://github.com/BogdanSinitsya/password-strength-app/assets/90261133/36b7e42a-f218-4d67-9b8d-e56a9da74894)
 
 ## Getting Started
 
